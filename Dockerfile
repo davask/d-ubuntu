@@ -18,5 +18,6 @@ RUN rm -rf /var/lib/apt/lists/*
 
 COPY ./dwl-init.sh /tmp/dwl-init.sh
 COPY ./dwl-init-0-ubuntu.sh /tmp/dwl-init-0-ubuntu.sh
+RUN chmod 700 /tmp/dwl-init.sh
 
 CMD ["/tmp/dwl-init.sh"]
