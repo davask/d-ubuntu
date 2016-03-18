@@ -14,5 +14,3 @@ do
 done;
 
 echo "##### END OF INITIALIZATION #####\n";
-
-/bin/bash
