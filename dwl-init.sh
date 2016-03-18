@@ -7,7 +7,8 @@ echo ">>>>>\n";
 
 echo "##### START INITIALIZATION #####";
 
-for init in `ls /tmp | grep dwl-init- | sort -r`; do
+for init in `ls /tmp | grep dwl-init- | sort -r`;
+do
     echo "<<<<< Initialization of /tmp/$init";
     "/tmp/$init";
     echo ">>>>>\n";
