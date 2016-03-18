@@ -1,10 +1,16 @@
 #!/bin/sh
 chmod -R 700 /tmp
-echo "List /tmp initialization files";
+
+echo "<<<<< LIST /TMP INITIALIZATION FILES";
 ls -lah /tmp;
-echo 'Start initialization';
-for init in `ls /tmp | grep dwl-init- | sort -r`;do
-    echo "Initialization of /tmp/$init";
-    do "/tmp/$init";
+echo ">>>>>\n";
+
+echo "##### START INITIALIZATION #####";
+
+for init in `ls /tmp | grep dwl-init- | sort -r`; do
+    echo "<<<<< Initialization of /tmp/$init";
+    "/tmp/$init";
+    echo ">>>>>\n";
 done;
-echo 'End of initialization';
+
+echo "##### END OF INITIALIZATION #####\n";
