@@ -23,12 +23,12 @@ RUN adduser --disabled-password --gecos "" $DWL_USER_NAME
 # declare volumes
 ENV DWL_USER_DIR /home/$DWL_USER_NAME
 VOLUME $DWL_USER_DIR
-RUN export DWL_TMP_DIR=`echo $DWL_USER_DIR/tmp`
+RUN export DWL_TMP_DIR=$(echo $DWL_USER_DIR/tmp)
 RUN test -d "$DWL_TMP_DIR" || mkdir -p "$DWL_TMP_DIR"
 
 # Instantiate container
 RUN export DWL_INIT=app
-RUN export DWL_INIT_DIR=`echo $DWL_TMP_DIR/dwl-$DWL_INIT`
+RUN export DWL_INIT_DIR=$(echo $DWL_TMP_DIR/dwl-$DWL_INIT)
 RUN test -d "$DWL_INIT_DIR" || mkdir -p "$DWL_INIT_DIR"
 RUN export DWL_INIT_COUNTER=0
 
