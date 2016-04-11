@@ -27,14 +27,14 @@ VOLUME /home/$DWL_APP_USER
 RUN export DWL_INIT=app
 RUN export DWL_INIT_COUNTER=0
 
-COPY ./ubuntu.sh /tmp/dwl-$DWL_INIT/$DWL_INIT_COUNTER-ubuntu.sh
+COPY ./ubuntu.sh /home/$DWL_APP_USER/tmp/dwl-$DWL_INIT/$DWL_INIT_COUNTER-ubuntu.sh
 RUN DWL_INIT_COUNTER=$(($DWL_INIT_COUNTER+1))
 
-COPY ./dwl-init.sh /tmp/dwl-init.sh
+COPY ./dwl-init.sh /home/$DWL_APP_USER/tmp/dwl-init.sh
 
-RUN chmod 700 /tmp/dwl-init.sh
+RUN chmod 700 /home/$DWL_APP_USER/tmp/dwl-init.sh
 
 WORKDIR /home/$DWL_APP_USER
 
 ENTRYPOINT ["/bin/bash"]
-CMD ["/tmp/dwl-init.sh"]
+CMD ["/home/$DWL_APP_USER/tmp/dwl-init.sh"]
