@@ -33,7 +33,6 @@ COPY ./ubuntu.sh $DWL_INIT_DIR/$DWL_INIT_COUNTER-ubuntu.sh
 RUN DWL_INIT_COUNTER=$(($DWL_INIT_COUNTER+1))
 
 COPY ./dwl-init.sh $DWL_TMP_DIR/dwl-init.sh
-
 RUN chmod 700 $DWL_TMP_DIR/dwl-init.sh
 
 WORKDIR /home/$DWL_APP_USER
