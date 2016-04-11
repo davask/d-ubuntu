@@ -16,6 +16,9 @@ RUN apt-get install -y wget
 RUN apt-get install -y unzip
 RUN rm -rf /var/lib/apt/lists/*
 
+COPY ./dwl-ubuntu.sh /tmp/dwl-ubuntu.sh
+RUN chmod 700 /tmp/dwl-ubuntu.sh
+
 ENTRYPOINT ["/bin/bash"]
 
-CMD ["echo \"Ubuntu:14:04 Initialized\";"]
+CMD ["/tmp/dwl-ubuntu.sh"]
