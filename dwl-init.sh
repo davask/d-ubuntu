@@ -21,7 +21,7 @@ echo ">>>>> SWITCH TO USER ${DWL_APP_USER} <<<<<";
 su ${DWL_APP_USER}
 echo "";
 
-if [ "${DWL_KEEP_ACTIVE}" = "true" ]; then
+if [ "${DWL_INIT}" = "app" ] || [ "${DWL_KEEP_ACTIVE}" = "true" ]; then
     echo ">>>>> KEEP APP ACTIVE <<<<<";
     tail -f /dev/null;
 fi
