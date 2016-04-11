@@ -17,6 +17,9 @@ unset DWL_INIT
 echo "##### END OF INITIALIZATION #####";
 echo "";
 
+echo ">>>>> ACCESS WORKDIR /home/${DWL_APP_USER} <<<<<";
+cd /home/${DWL_APP_USER}
+
 echo ">>>>> SWITCH TO USER ${DWL_APP_USER} <<<<<";
 su ${DWL_APP_USER}
 echo "";
