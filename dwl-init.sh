@@ -1,21 +1,20 @@
 #!/bin/bash
-chmod -R 700 /tmp
+chmod -R 700 /tmp/dwl-$DWL_INIT
 
 echo ">>>>> LIST /TMP INITIALIZATION FILES <<<<<";
-ls -lah /tmp | grep dwl-init- | sort -r;
+ls -lah /tmp/dwl-$DWL_INIT | sort -r;
 echo "";
 
 echo "##### START INITIALIZATION #####";
-echo "";
-for init in `ls /tmp | grep dwl-init- | sort -r`;
+for init in `ls /tmp/dwl-$DWL_INIT | sort -r`;
 do
-    echo ">>>>> Initialization of /tmp/$init <<<<<";
-    "/tmp/$init";
+    echo ">>>>> Initialization of /tmp/dwl-$DWL_INIT/$init <<<<<";
+    "/tmp/dwl-$DWL_INIT/$init";
     echo "";
 done;
-
-echo "";
+unset DWL_INIT_COUNTER
 echo "##### END OF INITIALIZATION #####";
+echo "";
 
 echo ">>>>> SWITCH TO USER ${DWL_APP_USER} <<<<<";
 su ${DWL_APP_USER}
