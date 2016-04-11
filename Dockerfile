@@ -25,16 +25,18 @@ VOLUME /home/$DWL_APP_USER
 
 # Instantiate container
 RUN export DWL_INIT=app
+RUN export DWL_TMP_DIR=/home/$DWL_APP_USER/tmp
+RUN export DWL_INIT_DIR=$DWL_TMP_DIR/dwl-$DWL_INIT
 RUN export DWL_INIT_COUNTER=0
 
-COPY ./ubuntu.sh /home/$DWL_APP_USER/tmp/dwl-$DWL_INIT/$DWL_INIT_COUNTER-ubuntu.sh
+COPY ./ubuntu.sh $DWL_INIT_DIR/$DWL_INIT_COUNTER-ubuntu.sh
 RUN DWL_INIT_COUNTER=$(($DWL_INIT_COUNTER+1))
 
-COPY ./dwl-init.sh /home/$DWL_APP_USER/tmp/dwl-init.sh
+COPY ./dwl-init.sh $DWL_TMP_DIR/dwl-init.sh
 
-RUN chmod 700 /home/$DWL_APP_USER/tmp/dwl-init.sh
+RUN chmod 700 $DWL_TMP_DIR/dwl-init.sh
 
 WORKDIR /home/$DWL_APP_USER
 
 ENTRYPOINT ["/bin/bash"]
-CMD ["/home/$DWL_APP_USER/tmp/dwl-init.sh"]
+CMD ["$DWL_TMP_DIR/dwl-init.sh"]

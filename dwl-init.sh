@@ -1,15 +1,15 @@
 #!/bin/bash
-chmod -R 700 /home/$DWL_APP_USER/tmp/dwl-$DWL_INIT
+chmod -R 700 $DWL_INIT_DIR
 
 echo ">>>>> LIST /TMP INITIALIZATION FILES <<<<<";
-ls -lah /home/$DWL_APP_USER/tmp/dwl-$DWL_INIT | sort -r;
+ls -lah $DWL_INIT_DIR | sort -r;
 echo "";
 
 echo "##### START INITIALIZATION #####";
-for init in `ls /home/$DWL_APP_USER/tmp/dwl-$DWL_INIT | sort -r`;
+for init in `ls $DWL_INIT_DIR | sort -r`;
 do
-    echo ">>>>> Initialization of /home/$DWL_APP_USER/tmp/dwl-$DWL_INIT/$init <<<<<";
-    /home/$DWL_APP_USER/tmp/dwl-$DWL_INIT/$init;
+    echo ">>>>> Initialization of $DWL_INIT_DIR/$init <<<<<";
+    $DWL_INIT_DIR/$init;
     echo "";
 done;
 unset DWL_INIT_COUNTER
