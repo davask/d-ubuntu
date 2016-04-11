@@ -1,20 +1,5 @@
-FROM ubuntu:14.04
+FROM davask/d-ubuntu:14.04
 MAINTAINER davask <contact@davaskweblimited.com>
-
-LABEL dwl.server.os="ubuntu"
-
-# disable interactive functions
-ENV DEBIAN_FRONTEND noninteractive
-
-# Update packages
-RUN apt-get update
-RUN apt-get install -y apt-utils
-RUN apt-get install -y build-essential
-RUN apt-get install -y nano
-RUN apt-get install -y curl
-RUN apt-get install -y wget
-RUN apt-get install -y unzip
-RUN rm -rf /var/lib/apt/lists/*
 
 # declare main user
 ENV DWL_USER_NAME dwl
@@ -40,5 +25,4 @@ RUN chmod 700 $DWL_TMP_DIR/dwl-init.sh
 
 WORKDIR $DWL_INIT_DIR
 
-ENTRYPOINT ["/bin/bash"]
 CMD ["sh", "-c","$DWL_TMP_DIR/dwl-init.sh"]
