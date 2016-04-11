@@ -22,7 +22,7 @@ RUN rm -rf /var/lib/apt/lists/*
 ENV DWL_APP_USER dwl
 ENV DWL_APP_GROUP dwl
 
-USER $APACHE_RUN_USER
+USER $DWL_APP_USER
 
 # declare volumes
 VOLUME /home/$DWL_APP_USER/www
