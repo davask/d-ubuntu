@@ -17,19 +17,20 @@ RUN apt-get install -y unzip
 RUN rm -rf /var/lib/apt/lists/*
 
 # declare main user
-ENV DWL_APP_USER dwl
-RUN adduser --disabled-password --gecos "" $DWL_APP_USER
+ENV DWL_USER_NAME dwl
+RUN adduser --disabled-password --gecos "" $DWL_USER_NAME
 
 # declare volumes
-VOLUME /home/$DWL_APP_USER
+ENV DWL_USER_DIR /home/$DWL_USER_NAME
+VOLUME $DWL_USER_DIR
+RUN export DWL_TMP_DIR=`echo $DWL_USER_DIR/tmp`
+RUN test -d "$DWL_TMP_DIR" || mkdir -p "$DWL_TMP_DIR"
 
 # Instantiate container
 RUN export DWL_INIT=app
-RUN export DWL_TMP_DIR=`echo /home/$DWL_APP_USER/tmp`
 RUN export DWL_INIT_DIR=`echo $DWL_TMP_DIR/dwl-$DWL_INIT`
+RUN test -d "$DWL_INIT_DIR" || mkdir -p "$DWL_INIT_DIR"
 RUN export DWL_INIT_COUNTER=0
-
-RUN echo $DWL_INIT_DIR
 
 COPY ./ubuntu.sh $DWL_INIT_DIR/$DWL_INIT_COUNTER-ubuntu.sh
 RUN DWL_INIT_COUNTER=$(($DWL_INIT_COUNTER+1))
