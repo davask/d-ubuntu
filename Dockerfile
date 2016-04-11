@@ -41,4 +41,4 @@ RUN chmod 700 $DWL_TMP_DIR/dwl-init.sh
 WORKDIR $DWL_INIT_DIR
 
 ENTRYPOINT ["/bin/bash"]
-CMD ["dwl-init.sh"]
+CMD ["sh", "-c","$DWL_TMP_DIR/dwl-init.sh"]
