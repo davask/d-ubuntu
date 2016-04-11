@@ -30,7 +30,7 @@ RUN export DWL_INIT_COUNTER=0
 COPY ./ubuntu.sh /tmp/dwl-$DWL_INIT/$DWL_INIT_COUNTER-ubuntu.sh
 RUN DWL_INIT_COUNTER=$(($DWL_INIT_COUNTER+1))
 
-COPY ./dwl-$DWL_INIT.sh /tmp/dwl-init.sh
+COPY ./dwl-init.sh /tmp/dwl-init.sh
 
 RUN chmod 700 /tmp/dwl-init.sh
 
