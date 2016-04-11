@@ -18,4 +18,4 @@ RUN rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["/bin/bash"]
 
-CMD ["echo", "davask web limited base container !"]
+CMD ["echo", "Ubuntu:14:04 Initialized"]
