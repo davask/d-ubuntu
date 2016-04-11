@@ -1,7 +1,7 @@
 #!/bin/bash
 chmod -R 700 /tmp
 
-echo ">>>>> LIST /TMP INITIALIZATION FILES <<<<<";";
+echo ">>>>> LIST /TMP INITIALIZATION FILES <<<<<";
 ls -lah /tmp | grep dwl-init- | sort -r;
 echo "";
 
