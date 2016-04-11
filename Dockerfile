@@ -38,7 +38,5 @@ RUN DWL_INIT_COUNTER=$(($DWL_INIT_COUNTER+1))
 COPY ./dwl-init.sh $DWL_TMP_DIR/dwl-init.sh
 RUN chmod 700 $DWL_TMP_DIR/dwl-init.sh
 
-WORKDIR $DWL_INIT_DIR
-
 ENTRYPOINT ["/bin/bash"]
 CMD ["sh", "-c","$DWL_TMP_DIR/dwl-init.sh"]
