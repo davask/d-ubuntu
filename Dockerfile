@@ -1,4 +1,3 @@
-FROM davask/d-ubuntu:14.04
 MAINTAINER davask <contact@davaskweblimited.com>
 
 LABEL dwl.server.os="ubuntu"
