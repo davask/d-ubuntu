@@ -20,17 +20,14 @@ RUN rm -rf /var/lib/apt/lists/*
 
 # declare main user
 ENV DWL_APP_USER dwl
-ENV DWL_APP_GROUP dwl
-
-USER $DWL_APP_USER
+RUN adduser --disabled-password --gecos "" $DWL_APP_USER
 
 # declare volumes
-VOLUME /home/$DWL_APP_USER/www
-VOLUME /home/$DWL_APP_USER/tmp
+VOLUME /home/$DWL_APP_USER
 
 # Instantiate container
-COPY ./dwl-init.sh /tmp/dwl-init.sh
 COPY ./dwl-init-0-ubuntu.sh /tmp/dwl-init-0-ubuntu.sh
+COPY ./dwl-init.sh /tmp/dwl-init.sh
 RUN chmod 700 /tmp/dwl-init.sh
 
 WORKDIR /home/$DWL_APP_USER
