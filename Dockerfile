@@ -6,9 +6,11 @@ LABEL dwl.server.os="ubuntu 16.04"
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN locale-gen en_US.UTF-8
-ENV LANG=en_US.UTF-8
-ENV LC_ALL=en_US.UTF-8
+ENV DWL_LOCAL en_US.UTF-8
+
+RUN locale-gen $DWL_LOCAL
+ENV LANG $DWL_LOCAL
+ENV LC_ALL $DWL_LOCAL
 
 # Update packages
 RUN apt-get update
