@@ -27,6 +27,8 @@ RUN rm -rf /var/lib/apt/lists/*
 COPY ./dwl-ubuntu.sh /tmp/dwl-ubuntu.sh
 RUN chmod 700 /tmp/dwl-ubuntu.sh
 
+RUN /bin/bash /tmp/dwl-ubuntu.sh
+
 ENTRYPOINT ["/bin/bash"]
 
-CMD ["/tmp/dwl-ubuntu.sh"]
+CMD ["echo \"Ubuntu started\""]
