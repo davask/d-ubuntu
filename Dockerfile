@@ -22,7 +22,10 @@ RUN apt-get install -y wget
 RUN apt-get install -y unzip
 RUN apt-get install -y git
 RUN apt-get install -y acl
+RUN apt-get install -y mlocate
 RUN rm -rf /var/lib/apt/lists/*
+
+RUN updatedb
 
 COPY ./dwl-ubuntu.sh /tmp/dwl-ubuntu.sh
 RUN chmod 700 /tmp/dwl-ubuntu.sh
