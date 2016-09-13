@@ -9,6 +9,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV DWL_LOCAL en_US.UTF-8
 
 RUN locale-gen $DWL_LOCAL
+
 ENV LANG $DWL_LOCAL
 ENV LC_ALL $DWL_LOCAL
 
@@ -25,9 +26,6 @@ RUN apt-get install -y acl
 RUN apt-get install -y sudo
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY ./dwl-ubuntu.sh /tmp/dwl-ubuntu.sh
-RUN chmod 700 /tmp/dwl-ubuntu.sh
+RUN echo "Ubuntu initialized";
 
 ENTRYPOINT ["/bin/bash"]
-
-CMD ["/tmp/dwl-ubuntu.sh"]
