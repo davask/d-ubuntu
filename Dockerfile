@@ -9,7 +9,6 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV DWL_LOCAL en_US.UTF-8
 
 RUN locale-gen $DWL_LOCAL
-
 ENV LANG $DWL_LOCAL
 ENV LC_ALL $DWL_LOCAL
 
@@ -23,9 +22,16 @@ RUN apt-get install -y wget
 RUN apt-get install -y unzip
 RUN apt-get install -y git
 RUN apt-get install -y acl
+RUN apt-get install -y mlocate
 RUN apt-get install -y sudo
 RUN rm -rf /var/lib/apt/lists/*
 
-RUN echo "Ubuntu initialized";
+# update database for mlocate
+RUN updatedb
+
+COPY ./dwl-ubuntu.sh /tmp/dwl-ubuntu.sh
+RUN chmod 700 /tmp/dwl-ubuntu.sh
 
 ENTRYPOINT ["/bin/bash"]
+
+CMD ["/tmp/dwl-ubuntu.sh"]
