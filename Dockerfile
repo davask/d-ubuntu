@@ -22,6 +22,7 @@ RUN apt-get install -y wget
 RUN apt-get install -y unzip
 RUN apt-get install -y git
 RUN apt-get install -y acl
+RUN apt-get install -y sudo
 RUN rm -rf /var/lib/apt/lists/*
 
 COPY ./dwl-ubuntu.sh /tmp/dwl-ubuntu.sh
