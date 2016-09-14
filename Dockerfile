@@ -47,9 +47,9 @@ RUN /bin/bash -c 'chown -R $DWL_USER_NAME:$DWL_USER_NAME -R $DWL_USER_HOME'
 
 #configuration static
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
-COPY ./home/user/tmp/dwl/init.sh $DWL_USER_HOME/tmp/dwl/init.sh
+COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
 
 WORKDIR $DWL_USER_HOME
 EXPOSE 22
 ENTRYPOINT ["/bin/bash"]
-CMD ["$DWL_USER_HOME/tmp/dwl/init.sh"]
+CMD ["/tmp/dwl/init.sh"]
