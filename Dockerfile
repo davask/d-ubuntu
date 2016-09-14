@@ -34,9 +34,8 @@ ENV DWL_USER_NAME dwl
 ENV DWL_USER_PASSWD dwl
 
 # init user
-RUN adduser --disabled-password --no-create-home --gecos "" $DWL_USER_NAME
-RUN echo -e "$DWL_USER_PASSWD\n$DWL_USER_PASSWD" | passwd $DWL_USER_NAME
-ENV DWL_USER_DIR /home/${DWL_USER_NAME}
+RUN useradd -ms /bin/bash $DWL_USER_NAME
+RUN echo "$DWL_USER_PASSWD:$DWL_USER_PASSWD" | chpasswd
 
 #configuration static
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
