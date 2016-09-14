@@ -24,8 +24,6 @@ RUN apt-get install -y acl
 RUN apt-get install -y openssh-server
 RUN rm -rf /var/lib/apt/lists/*
 
-# Declare instantiation counter
-ENV DWL_INIT_COUNT 0
 # declare container type
 ENV DWL_INIT server
 # declare if by default we keep container running
