@@ -13,8 +13,8 @@ ENV DWL_KEEP_RUNNING false
 ENV DWL_LOCAL en_US.UTF-8
 ENV LANG $DWL_LOCAL
 ENV LC_ALL $DWL_LOCAL
-# declare main user
 ENV DWL_ADMIN_GROUP dwladmin
+# declare main user
 ENV DWL_USER_NAME dwl
 ENV DWL_USER_PASSWD dwl
 ENV DWL_USER_HOME /home/$DWL_USER_NAME
@@ -41,7 +41,7 @@ RUN /bin/bash -c 'useradd -m -r \
 -G $DWL_ADMIN_GROUP \
 -d $DWL_USER_HOME \
 -s /bin/bash \
--c "Docker image user" \
+-c "dwl ssh user" \
 -p $DWL_USER_PASSWD $DWL_USER_NAME'
 RUN /bin/bash -c 'chown -R $DWL_USER_NAME:$DWL_USER_NAME -R $DWL_USER_HOME'
 

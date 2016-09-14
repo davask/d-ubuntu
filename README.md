@@ -1,9 +1,4 @@
 # dockerfile
-- ubuntu
-
-## LABEL
-
-dwl.server.os="ubuntu 14.04"
 
 ## Default ENV values
 
@@ -13,3 +8,7 @@ Define Default LANG LOCAL
 Define username:passwd for ssh access
 > DWL_USER_NAME dwl
 > DWL_USER_PASSWD dwl
+
+## LABEL
+
+>dwl.server.os="ubuntu 14.04"
