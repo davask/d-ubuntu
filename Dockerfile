@@ -29,7 +29,7 @@ RUN apt-get install -y sudo
 RUN apt-get install -y openssh-server
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY ./ssh_conf/sshd_config /etc/ssh/sshd_config
+# COPY ./ssh_conf/sshd_config /etc/ssh/sshd_config
 COPY ./dwl-ubuntu.sh /tmp/dwl-ubuntu.sh
 RUN chmod 700 /tmp/dwl-ubuntu.sh
 
