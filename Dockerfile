@@ -25,9 +25,6 @@ RUN apt-get install -y acl
 RUN apt-get install -y sudo
 RUN rm -rf /var/lib/apt/lists/*
 
-# update database for mlocate
-RUN updatedb
-
 COPY ./dwl-ubuntu.sh /tmp/dwl-ubuntu.sh
 RUN chmod 700 /tmp/dwl-ubuntu.sh
 
