@@ -32,22 +32,19 @@ ENV DWL_KEEP_RUNNING false
 # declare main user
 ENV DWL_USER_NAME dwl
 ENV DWL_USER_PASSWD dwl
-
+ENV DWL_USER_HOME /home/$DWL_USER_NAME
 # init user
-RUN useradd -ms /bin/bash $DWL_USER_NAME
-RUN echo "$DWL_USER_PASSWD:$DWL_USER_PASSWD" | chpasswd
+RUN useradd -m -G superadmin -p$DWL_USER_PASSWD $DWL_USER_NAME
 
 #configuration static
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
-COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
 
+COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
 RUN chmod 700 -R /tmp/dwl
 RUN chown $DWL_USER_NAME -R /tmp/dwl
 
 USER $DWL_USER_NAME
-
-WORKDIR $HOME
+WORKDIR $DWL_USER_HOME
 
 ENTRYPOINT ["/bin/bash"]
-
 CMD ["/tmp/dwl/init.sh"]
