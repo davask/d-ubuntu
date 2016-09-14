@@ -29,11 +29,26 @@ ENV DWL_INIT server
 # declare if by default we keep container running
 ENV DWL_KEEP_RUNNING false
 
+# declare main user
+ENV DWL_USER_NAME dwl
+ENV DWL_USER_PASSWD dwl
+ENV DWL_USER_HOME /home/$DWL_USER_NAME
+# init user
+RUN groupadd -r $DWL_USER_NAME
+RUN useradd -r -g $DWL_USER_NAME -d $DWL_USER_HOME -s /sbin/nologin -c "Docker image user" $DWL_USER_NAME
+RUN chown $DWL_USER_NAME:$DWL_USER_NAME -R $DWL_USER_HOME
+
 #configuration static
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
 
 COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
 RUN chmod 700 -R /tmp/dwl
+RUN chown $$DWL_USER_NAME:$DWL_USER_NAME -R /tmp/dwl
+
+USER $DWL_USER_NAME
+WORKDIR $DWL_USER_HOME
+
+EXPOSE 22
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["/tmp/dwl/init.sh"]
