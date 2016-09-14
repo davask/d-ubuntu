@@ -1,13 +1,15 @@
-# ubuntu
-dockerfile base for ubuntu
+# dockerfile
+- ubuntu
+
+## LABEL
+
+dwl.server.os="ubuntu 14.04"
 
 ## Default ENV values
-
-Force container to keep running
-> DWL_KEEP_RUNNING false|true
 
 Define Default LANG LOCAL
 > DWL_LOCAL en_US.UTF-8
 
-## LABEL
-dwl.server.os="ubuntu 14.04"
+Define username:passwd for ssh access
+> DWL_USER_NAME dwl
+> DWL_USER_PASSWD dwl

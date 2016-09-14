@@ -3,7 +3,7 @@ d-ubuntu:
   - 65500:22/tcp
   environment:
     DWL_LOCAL: en_US.UTF-8
-    DWL_KEEP_RUNNING: false
+    DWL_KEEP_RUNNING: 'true'
   labels:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
