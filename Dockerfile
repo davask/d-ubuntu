@@ -38,7 +38,7 @@ RUN /bin/bash -c 'apt-get install -y openssh-server'
 RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*'
 # init user
 RUN /bin/bash -c 'groupadd -r $DWL_USER_NAME'
-RUN /bin/bash -c 'useradd -m -r -g $DWL_USER_NAME -d $DWL_USER_HOME -s /sbin/nologin -c "Docker image user" $DWL_USER_NAME'
+RUN /bin/bash -c 'useradd -m -r -g $DWL_USER_NAME -d $DWL_USER_HOME -s /bin/bash -c "Docker image user" -p DWL_USER_PASSWD $DWL_USER_NAME'
 RUN /bin/bash -c 'chown $DWL_USER_NAME:$DWL_USER_NAME -R $DWL_USER_HOME'
 RUN /bin/bash -c 'chmod 700 -R /tmp/dwl'
 RUN /bin/bash -c 'chown $DWL_USER_NAME:$DWL_USER_NAME -R /tmp/dwl'
