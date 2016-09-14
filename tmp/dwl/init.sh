@@ -2,6 +2,7 @@
 
 if [ "${DWL_INIT}" != "data" ]; then
     DWL_KEEP_RUNNING=true
+    echo ">> Ssh started";
     service ssh start;
 fi
 echo "Ubuntu initialized";
