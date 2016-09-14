@@ -3,6 +3,9 @@ MAINTAINER davask <admin@davaskweblimited.com>
 
 LABEL dwl.server.os="ubuntu 14.04"
 
+# declare if by default we keep container running
+ENV DWL_KEEP_RUNNING false
+
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
 

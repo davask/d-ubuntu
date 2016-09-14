@@ -1,0 +1,13 @@
+d-ubuntu:
+  ports:
+  - 65500:22/tcp
+  environment:
+    DWL_LOCAL: en_US.UTF-8
+    DWL_KEEP_RUNNING: false
+  labels:
+    io.rancher.container.pull_image: always
+    io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
+  tty: true
+  hostname: www.test.fr
+  image: davask/d-ubuntu:14.04
+  stdin_open: true
