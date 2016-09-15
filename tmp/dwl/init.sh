@@ -2,6 +2,7 @@
 
 # declare user
 if [ "`grep ${DWL_USER_NAME} /etc/passwd | wc -l`" = 0 ]; then
+    echo ">> Declare user ${DWL_USER_NAME}";
     # declare home user
     DWL_USER_HOME=/home/${DWL_USER_NAME};
     # declare group user
