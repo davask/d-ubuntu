@@ -17,7 +17,6 @@ ENV DWL_ADMIN_GROUP dwladmin
 # declare main user
 ENV DWL_USER_NAME dwl
 ENV DWL_USER_PASSWD dwl
-ENV DWL_USER_HOME /home/$DWL_USER_NAME
 
 # Update local
 RUN /bin/bash -c 'locale-gen $DWL_LOCAL'
@@ -35,21 +34,11 @@ RUN /bin/bash -c 'apt-get install -y openssh-server'
 RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*'
 # init user
 RUN /bin/bash -c 'groupadd -r $DWL_ADMIN_GROUP'
-RUN /bin/bash -c 'groupadd -r $DWL_USER_NAME'
-RUN /bin/bash -c 'useradd -m -r \
--g $DWL_USER_NAME \
--G $DWL_ADMIN_GROUP \
--d $DWL_USER_HOME \
--s /bin/bash \
--c "dwl ssh user" \
--p $DWL_USER_PASSWD $DWL_USER_NAME'
-RUN /bin/bash -c 'chown -R $DWL_USER_NAME:$DWL_USER_NAME -R $DWL_USER_HOME'
 
 #configuration static
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
 COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
 
-WORKDIR $DWL_USER_HOME
 EXPOSE 22
 ENTRYPOINT ["/bin/bash"]
 CMD ["/tmp/dwl/init.sh"]
