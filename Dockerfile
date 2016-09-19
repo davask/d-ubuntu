@@ -29,7 +29,7 @@ RUN /bin/bash -c 'groupadd -r $DWL_ADMIN_GROUP;'
 
 #configuration static
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
-COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
+ONBUILD COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
 
 EXPOSE 22
 ENTRYPOINT ["/bin/bash"]
