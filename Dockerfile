@@ -12,7 +12,8 @@ ENV LANG $DWL_LOCAL
 ENV LC_ALL $DWL_LOCAL
 ENV DWL_ADMIN_GROUP dwladmin
 # declare main user
-ENV DWL_USER_NAME dwl
+ENV DWL_USER_NAME username
+ENV DWL_USER_PASSWD secret
 # declare main user
 ENV DWL_SSH_ACCESS false
 
