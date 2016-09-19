@@ -20,10 +20,10 @@ ENV DWL_SSH_ACCESS false
 # Update local
 RUN /bin/bash -c 'locale-gen $DWL_LOCAL'
 # Update packages
-ONBUILD RUN /bin/bash -c 'apt-get update;'
-RUN /bin/bash -c 'apt-get install -y nano;'
-RUN /bin/bash -c 'apt-get install -y openssh-server;'
-RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*;'
+ONBUILD RUN /bin/bash -c 'apt-get update'
+RUN /bin/bash -c 'apt-get install -y nano'
+RUN /bin/bash -c 'apt-get install -y openssh-server'
+RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*'
 # init user
 RUN /bin/bash -c 'groupadd -r $DWL_ADMIN_GROUP;'
 
