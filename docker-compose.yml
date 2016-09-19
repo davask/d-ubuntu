@@ -2,8 +2,10 @@ d-ubuntu:
   ports:
   - 65500:22/tcp
   environment:
-    DWL_USER_NAME: dwl
-    DWL_USER_PASSWD: dwl
+    DWL_LOCAL: en_US.UTF-8
+    DWL_USER_NAME: username
+    DWL_USER_PASSWD: secret
+    DWL_SSH_ACCESS: true
   labels:
     io.rancher.container.pull_image: always
     io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
