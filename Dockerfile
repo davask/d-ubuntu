@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-MAINTAINER davask <admin@davaskweblimited.com>
+MAINTAINER davask <docker@davaskweblimited.com>
 LABEL dwl.server.os="ubuntu 14.04"
 
 # disable interactive functions
