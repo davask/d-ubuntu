@@ -20,19 +20,12 @@ ENV DWL_SSH_ACCESS false
 # Update local
 RUN /bin/bash -c 'locale-gen $DWL_LOCAL'
 # Update packages
-RUN /bin/bash -c 'apt-get update'
-RUN /bin/bash -c 'apt-get install -y apt-utils'
-RUN /bin/bash -c 'apt-get install -y build-essential'
-RUN /bin/bash -c 'apt-get install -y nano'
-RUN /bin/bash -c 'apt-get install -y curl'
-RUN /bin/bash -c 'apt-get install -y wget'
-RUN /bin/bash -c 'apt-get install -y unzip'
-RUN /bin/bash -c 'apt-get install -y git'
-RUN /bin/bash -c 'apt-get install -y acl'
-RUN /bin/bash -c 'apt-get install -y openssh-server'
-RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*'
+RUN /bin/bash -c 'apt-get update;'
+RUN /bin/bash -c 'apt-get install -y nano;'
+RUN /bin/bash -c 'apt-get install -y openssh-server;'
+RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*;'
 # init user
-RUN /bin/bash -c 'groupadd -r $DWL_ADMIN_GROUP'
+RUN /bin/bash -c 'groupadd -r $DWL_ADMIN_GROUP;'
 
 #configuration static
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
