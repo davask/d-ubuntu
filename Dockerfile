@@ -32,9 +32,5 @@ COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
 
 EXPOSE 22
 
-# Update packages
-ONBUILD RUN /bin/bash -c 'apt-get update;'
-ONBUILD COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
-
 ENTRYPOINT ["/bin/bash"]
 CMD ["/tmp/dwl/init.sh"]
