@@ -1,12 +1,9 @@
 FROM ubuntu:14.04
 MAINTAINER davask <admin@davaskweblimited.com>
-USER root
 LABEL dwl.server.os="ubuntu 14.04"
 
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
-# declare container type
-ENV DWL_INIT server
 # declare if by default we keep container running
 ENV DWL_KEEP_RUNNING false
 # declare local
@@ -16,7 +13,8 @@ ENV LC_ALL $DWL_LOCAL
 ENV DWL_ADMIN_GROUP dwladmin
 # declare main user
 ENV DWL_USER_NAME dwl
-ENV DWL_USER_PASSWD dwl
+# declare main user
+ENV DWL_SSH_ACCESS false
 
 # Update local
 RUN /bin/bash -c 'locale-gen $DWL_LOCAL'
