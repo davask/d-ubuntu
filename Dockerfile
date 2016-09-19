@@ -29,7 +29,7 @@ RUN /bin/bash -c 'groupadd -r ${DWL_ADMIN_GROUP};'
 
 #configuration static
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
-ONBUILD COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
+COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
 
 EXPOSE 22
 ENTRYPOINT ["/bin/bash"]
@@ -37,3 +37,4 @@ CMD ["/tmp/dwl/init.sh"]
 
 # Update packages
 ONBUILD RUN /bin/bash -c 'apt-get update;'
+ONBUILD COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
