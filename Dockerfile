@@ -8,6 +8,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV DWL_KEEP_RUNNING false
 # declare local
 ENV DWL_LOCAL en_US.UTF-8
+ENV LC_ALL ${DWL_LOCAL}
+ENV LANG ${DWL_LOCAL}
 # declare main user
 ENV DWL_USER_ID 1000
 ENV DWL_USER_NAME username
