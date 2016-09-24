@@ -1,6 +1,6 @@
-FROM ubuntu:14.04
+FROM ubuntu:12.04
 MAINTAINER davask <docker@davaskweblimited.com>
-LABEL dwl.server.os="ubuntu 14.04"
+LABEL dwl.server.os="ubuntu 12.04"
 
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
