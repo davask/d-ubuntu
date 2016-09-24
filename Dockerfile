@@ -21,6 +21,7 @@ ENV DWL_SSH_ACCESS false
 RUN /bin/bash -c 'locale-gen ${DWL_LOCAL};'
 # Update packages
 RUN /bin/bash -c 'apt-get update;'
+RUN /bin/bash -c 'apt-get install -y lsb-core;'
 RUN /bin/bash -c 'apt-get install -y nano;'
 RUN /bin/bash -c 'apt-get install -y openssh-server;'
 RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*;'
