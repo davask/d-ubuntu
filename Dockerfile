@@ -38,4 +38,3 @@ EXPOSE 22
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["/tmp/dwl/init.sh"]
-<
