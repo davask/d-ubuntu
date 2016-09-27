@@ -3,8 +3,8 @@ d-ubuntu:
   - 65500:22/tcp
   environment:
     DWL_SSH_ACCESS: 'true'
-    DWL_USER_NAME: dwl
-    DWL_USER_PASSWD: dwl
+    DWL_USER_NAME: username
+    DWL_USER_PASSWD: secret
     DWL_USER_ID: '1000'
   labels:
     io.rancher.container.start_once: 'true'
@@ -13,5 +13,5 @@ d-ubuntu:
   hostname: ubuntu.davaskweblimited.com
   image: davask/d-ubuntu:14.04
   volumes:
-  - /home/dwl/projects/factory/docker-dev:/home/dwl
+  - /path/to/home/user:/home/username
   stdin_open: true
