@@ -27,10 +27,13 @@ RUN /bin/bash -c 'apt-get install -y openssh-server'
 RUN /bin/bash -c 'apt-get install -y wget'
 RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*'
 
+
 #configuration static
+COPY ./tmp/dwl/envvar.sh /tmp/dwl/envvar.sh
 COPY ./etc/ssh/sshd_config /etc/ssh/sshd_config
 COPY ./tmp/dwl/user.sh /tmp/dwl/user.sh
 COPY ./tmp/dwl/ssh.sh /tmp/dwl/ssh.sh
+COPY ./tmp/dwl/permission.sh /tmp/dwl/permission.sh
 COPY ./tmp/dwl/keeprunning.sh /tmp/dwl/keeprunning.sh
 COPY ./tmp/dwl/init.sh /tmp/dwl/init.sh
 

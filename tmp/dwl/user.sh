@@ -12,4 +12,3 @@ if [ "`grep ${DWL_USER_NAME} /etc/passwd | wc -l`" = 0 ]; then
         --user-group \
         ${DWL_USER_NAME};
 fi;
-chown -R ${DWL_USER_NAME} /home/${DWL_USER_NAME}

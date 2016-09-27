@@ -1,32 +1,11 @@
 #! /bin/bash
 
-# declare user
-if [ "`grep ${DWL_USER_NAME} /etc/passwd | wc -l`" = 0 ]; then
-    echo "> Declare user ${DWL_USER_NAME}";
-    # declare home user
-    DWL_USER_HOME=/home/${DWL_USER_NAME};
-    # declare group user
-    groupadd -r ${DWL_USER_NAME};
-    # declare group user
-    useradd -m -r \
-        -g ${DWL_USER_NAME} \
-        -G ${DWL_ADMIN_GROUP} \
-        -d ${DWL_USER_HOME} \
-        -s /bin/bash \
-        -c "dwl ssh user" \
-        -p $(echo "${DWL_USER_PASSWD}" | openssl passwd -1 -stdin) \
-        ${DWL_USER_NAME};
-    chown -R ${DWL_USER_NAME}:${DWL_USER_NAME} -R ${DWL_USER_HOME};
-fi
-
-if [ "${DWL_SSH_ACCESS}" = "true" ]; then
-    DWL_KEEP_RUNNING=true;
-    echo "> Start Ssh";
-    service ssh start;
-fi
+. /tmp/dwl/envvar.sh
+. /tmp/dwl/user.sh
+. /tmp/dwl/ssh.sh
 echo ">> Ubuntu initialized";
 
-if [ "${DWL_KEEP_RUNNING}" = "true" ]; then
-    echo "> Kept container active";
-    tail -f /dev/null;
-fi
+. /tmp/dwl/permission.sh
+echo ">> permission assigned";
+
+. /tmp/dwl/keeprunning.sh
