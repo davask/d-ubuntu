@@ -1,2 +1,2 @@
 #! /bin/bash
-DWL_USER_NAME=${DWL_USER_NAME:-`whoami`};
+export DWLC_USER_NAME=${DWL_USER_NAME:-`whoami`};
