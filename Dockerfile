@@ -8,8 +8,11 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV DWL_KEEP_RUNNING false
 # declare local
 ENV DWL_LOCAL en_US.UTF-8
-ENV LC_ALL ${DWL_LOCAL}
+ENV DWL_LOCAL_LANG en_US:en
+RUN locale-gen ${DWL_LOCAL}
 ENV LANG ${DWL_LOCAL}
+ENV LANGUAGE ${DWL_LOCAL_LANG}
+ENV LC_ALL ${DWL_LOCAL}
 # declare main user
 ENV DWL_USER_ID 1000
 ENV DWL_USER_NAME username
@@ -18,14 +21,15 @@ ENV DWL_USER_PASSWD secret
 ENV DWL_SSH_ACCESS false
 
 # Update local
-RUN /bin/bash -c 'locale-gen ${DWL_LOCAL};'
+RUN locale-gen ${DWL_LOCAL}
 # Update packages
-RUN /bin/bash -c 'apt-get update'
-RUN /bin/bash -c 'apt-get install -y ca-certificates'
-RUN /bin/bash -c 'apt-get install -y nano'
-RUN /bin/bash -c 'apt-get install -y openssh-server'
-RUN /bin/bash -c 'apt-get install -y wget'
-RUN /bin/bash -c 'rm -rf /var/lib/apt/lists/*'
+RUN apt-get update
+RUN apt-get install -y apt-utils
+RUN apt-get install -y ca-certificates
+RUN apt-get install -y nano
+RUN apt-get install -y openssh-server
+RUN apt-get install -y wget
+RUN rm -rf /var/lib/apt/lists/*
 
 
 #configuration static
