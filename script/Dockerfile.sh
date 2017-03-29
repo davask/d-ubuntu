@@ -1,7 +1,18 @@
-FROM ubuntu:14.04
-MAINTAINER davask <docker@davaskweblimited.com>
-LABEL dwl.server.os="ubuntu 14.04"
+#/usr/bin/env bash
 
+branch=${1};
+parentBranch=${2};
+rootDir=${3};
+buildDir=${4};
+
+##############
+# Dockerfile #
+##############
+
+echo "FROM ubuntu:${parentBranch}
+MAINTAINER davask <docker@davaskweblimited.com>
+LABEL dwl.server.os=\"ubuntu ${branch}\"" > ${rootDir}/Dockerfile
+echo '
 # disable interactive functions
 ENV DEBIAN_FRONTEND noninteractive
 # declare if by default we keep container running
@@ -45,4 +56,6 @@ EXPOSE 22
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["/dwl/init.sh"]
+' >> ${rootDir}/Dockerfile
 
+echo "Dockerfile generated with ubuntu:${branch}";

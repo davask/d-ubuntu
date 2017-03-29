@@ -1,4 +1,15 @@
-# dockerfile
+#/usr/bin/env bash
+
+branch=${1};
+parentBranch=${2};
+rootDir=${3};
+buildDir=${4};
+
+#############
+# README.md #
+#############
+
+echo "# dockerfile
 
 ## Exposed port
 
@@ -30,5 +41,8 @@
 
 ## LABEL
 
-> dwl.server.os="ubuntu 14.04"
+> dwl.server.os=\"ubuntu ${branch}\"
+" > ${rootDir}/README.md
+
+echo "README.md generated with ubuntu:${branch}";
 

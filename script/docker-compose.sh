@@ -1,4 +1,15 @@
-d-ubuntu:
+#/usr/bin/env bash
+
+branch=${1};
+parentBranch=${2};
+rootDir=${3};
+buildDir=${4};
+
+######################
+# docker-compose.yml #
+######################
+
+echo "d-ubuntu:
   ports:
   - 65502:22/tcp
   environment:
@@ -13,7 +24,10 @@ d-ubuntu:
     io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
   tty: true
   hostname: private.davaskweblimited.com
-  image: davask/d-ubuntu:14.04
+  image: davask/d-ubuntu:${branch}
   volumes:
-  - /home/dwl/docker-images/base/d-ubuntu/volumes/home/username:/home/username
+  - ${rootDir}/volumes/home/username:/home/username
+" > ${rootDir}/docker-compose.yml
+
+echo "docker-compose.yml generated with ubuntu:${branch}";
 
