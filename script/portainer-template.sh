@@ -9,8 +9,8 @@ buildDir=${4};
 # docker-compose.yml #
 ######################
 
-cat <<- EOF > ${rootDir}/portainer-template.json
-`cat ${ITEMPLATES}/portainer-template.sh`
-EOF
+. ${ITEMPLATES}/portainer-template.sh
+
+portainerubuntu ${rootDir};
 
 echo "portainer-template generated with ubuntu:${branch}";
