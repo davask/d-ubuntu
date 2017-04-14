@@ -38,7 +38,7 @@
         }
     ],
     "volumes": [
-        "/home/username/tcp"
+        "/home/username"
     ]
   }
 ]
