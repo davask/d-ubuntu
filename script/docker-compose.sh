@@ -20,11 +20,10 @@ echo "d-ubuntu:
     DWL_USER_ID: '1000'
     DWL_USER_PASSWD: secret
     DWL_KEEP_RUNNING: 'true'
-  labels:
-    io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
   tty: true
-  hostname: private.davaskweblimited.com
+  hostname: localhost
   image: davask/d-ubuntu:${branch}
+  net: bridge
   volumes:
   - ${rootDir}/volumes/home/username:/home/username
 " > ${rootDir}/docker-compose.yml

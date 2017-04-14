@@ -9,11 +9,10 @@ d-ubuntu:
     DWL_USER_ID: '1000'
     DWL_USER_PASSWD: secret
     DWL_KEEP_RUNNING: 'true'
-  labels:
-    io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
   tty: true
-  hostname: private.davaskweblimited.com
+  hostname: localhost
   image: davask/d-ubuntu:14.04
+  net: bridge
   volumes:
   - /home/dwl/docker-images/base/d-ubuntu/volumes/home/username:/home/username
 
