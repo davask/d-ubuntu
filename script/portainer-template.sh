@@ -11,6 +11,6 @@ buildDir=${4};
 
 . ${ITEMPLATES}/portainer-template.sh
 
-portainerubuntu ${rootDir};
+portainertemplate ${rootDir} "ubuntu";
 
 echo "portainer-template generated with ubuntu:${branch}";
