@@ -10,7 +10,7 @@ buildDir=${4};
 ######################
 
 cat <<- EOF > ${rootDir}/portainer-template.json
-. ${ITEMPLATES}/portainer-template.sh
+`cat ${ITEMPLATES}/portainer-template.sh`
 EOF
 
 echo "portainer-template generated with ubuntu:${branch}";
