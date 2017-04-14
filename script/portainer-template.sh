@@ -9,7 +9,8 @@ buildDir=${4};
 # docker-compose.yml #
 ######################
 
-echo '[
+cat <<- EOF > ${rootDir}/portainer-template.json
+[
   {
     "title": "Ubuntu 14.04",
     "description": "Ubuntu 14.04.5 LTS (Trusty Tahr) image",
@@ -51,6 +52,6 @@ echo '[
     "volumes": ["/home/username"]
   }
 ]
-' >> ${rootDir}/portainer-template.json
+EOF
 
 echo "portainer-template generated with ubuntu:${branch}";
