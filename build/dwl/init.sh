@@ -8,6 +8,6 @@ dwlDir="/dwl";
 echo ">> Ubuntu initialized";
 
 . ${dwlDir}/permission.sh
-echo ">> permission assigned";
+echo ">> Permission assigned";
 
 . ${dwlDir}/keeprunning.sh
