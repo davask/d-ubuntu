@@ -41,14 +41,7 @@ RUN apt-get install -y openssl
 RUN apt-get install -y ca-certificates
 RUN apt-get install -y apt-transport-https
 RUN apt-get install -y software-properties-common
-
-# ubuntu 14.04 update
-# RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu zesty main universe"
-# RUN apt-get update
-# RUN apt-cache policy openssh-server
-# RUN apt-get install -y openssh-server=1:7.4p1-10
 RUN apt-get install -y openssh-server
-
 RUN apt-get install -y nano
 RUN apt-get install -y wget
 RUN rm -rf /var/lib/apt/lists/*
