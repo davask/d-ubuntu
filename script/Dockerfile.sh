@@ -37,6 +37,7 @@ RUN locale-gen ${DWL_LOCAL}
 # Update packages
 RUN apt-get update
 RUN apt-get install -y apt-utils
+RUN apt-get install -y openssl
 RUN apt-get install -y ca-certificates
 RUN apt-get install -y apt-transport-https
 RUN apt-get install -y software-properties-common
