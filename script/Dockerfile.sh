@@ -54,7 +54,8 @@ RUN apt-get install -y wget
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash admin
-RUN echo "admin:admin" | chpasswd && adduser admin sudo
+RUN echo "admin:admin" | chpasswd
+RUN adduser admin sudo
 
 #configuration static
 COPY ./build/dwl/envvar.sh /dwl/envvar.sh
