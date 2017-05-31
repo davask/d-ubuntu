@@ -36,9 +36,18 @@ RUN locale-gen ${DWL_LOCAL}
 # Update packages
 RUN apt-get update
 RUN apt-get install -y apt-utils
+RUN apt-get install -y software-properties-common
+
+# ubuntu 14.04
+RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu zesty main universe multiverse"
+RUN apt-get update
+RUN apt-get install openssh-server=1:7.4p1-10
+
+# ubuntu 16.04
+# RUN apt-get install -y openssh-server
+
 RUN apt-get install -y ca-certificates
 RUN apt-get install -y nano
-RUN apt-get install -y openssh-server
 RUN apt-get install -y wget
 RUN rm -rf /var/lib/apt/lists/*
 
