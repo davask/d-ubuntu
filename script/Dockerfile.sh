@@ -41,7 +41,7 @@ RUN apt-get install -y software-properties-common
 # ubuntu 14.04
 RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu zesty main universe multiverse"
 RUN apt-get update
-RUN apt-get install openssh-server=1:7.4p1-10
+RUN apt-get install -y openssh-server=1:7.4p1-10
 
 # ubuntu 16.04
 # RUN apt-get install -y openssh-server
