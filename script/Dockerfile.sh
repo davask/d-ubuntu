@@ -37,21 +37,12 @@ RUN locale-gen ${DWL_LOCAL}
 # Update packages
 RUN apt-get update
 RUN apt-get install -y apt-utils
-
-RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty multiverse"
-RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-updates multiverse"
-RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
-RUN apt-add-repository "deb http://security.ubuntu.com/ubuntu trusty-security main restricted"
-RUN apt-add-repository "deb http://security.ubuntu.com/ubuntu trusty-security universe"
-RUN apt-add-repository "deb http://security.ubuntu.com/ubuntu trusty-security multiverse"
-RUN apt-get update
-
 RUN apt-get install -y ca-certificates
 RUN apt-get install -y apt-transport-https
 RUN apt-get install -y software-properties-common
 
 # ubuntu 14.04 update
-# RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu zesty main universe multiverse"
+# RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu zesty main universe"
 # RUN apt-get update
 # RUN apt-cache policy openssh-server
 # RUN apt-get install -y openssh-server=1:7.4p1-10
