@@ -36,8 +36,6 @@ RUN apt-get install -y software-properties-common
 # RUN apt-get update
 # RUN apt-cache policy openssh-server
 # RUN apt-get install -y openssh-server=1:7.4p1-10
-
-# ubuntu 16.04
 RUN apt-get install -y openssh-server
 
 RUN apt-get install -y nano
