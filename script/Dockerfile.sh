@@ -42,6 +42,21 @@ RUN apt-get install -y ca-certificates
 RUN apt-get install -y apt-transport-https
 RUN apt-get install -y software-properties-common
 
+RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty multiverse"
+RUN apt-add-repository "deb-src http://archive.ubuntu.com/ubuntu trusty multiverse"
+RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-updates multiverse"
+RUN apt-add-repository "deb-src http://archive.ubuntu.com/ubuntu trusty-updates multiverse"
+
+RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
+RUN apt-add-repository "deb-src http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe multiverse"
+
+RUN apt-add-repository "deb http://security.ubuntu.com/ubuntu trusty-security main restricted"
+RUN apt-add-repository "deb-src http://security.ubuntu.com/ubuntu trusty-security main restricted"
+RUN apt-add-repository "deb http://security.ubuntu.com/ubuntu trusty-security universe"
+RUN apt-add-repository "deb-src http://security.ubuntu.com/ubuntu trusty-security universe"
+RUN apt-add-repository "deb http://security.ubuntu.com/ubuntu trusty-security multiverse"
+RUN apt-add-repository "deb-src http://security.ubuntu.com/ubuntu trusty-security multiverse"
+
 # ubuntu 14.04 update
 # RUN apt-add-repository "deb http://archive.ubuntu.com/ubuntu zesty main universe multiverse"
 # RUN apt-get update
