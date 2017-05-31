@@ -26,6 +26,8 @@ echo "d-ubuntu:
   net: bridge
   volumes:
   - ${rootDir}/volumes/home/username:/home/username
+
+# docker-compose -f ${HOME}/docker-images/base/d-ubuntu/docker-compose.yml up -d
 " > ${rootDir}/docker-compose.yml
 
 echo "docker-compose.yml generated with ubuntu:${branch}";

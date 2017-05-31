@@ -42,6 +42,7 @@ RUN apt-get install -y nano
 RUN apt-get install -y wget
 RUN rm -rf /var/lib/apt/lists/*
 
+RUN useradd -ms /bin/bash admin
 
 #configuration static
 COPY ./build/dwl/envvar.sh /dwl/envvar.sh
@@ -57,4 +58,5 @@ EXPOSE 22
 ENTRYPOINT ["/bin/bash"]
 CMD ["/dwl/init.sh"]
 USER admin
+WORKDIR /home/admin
 

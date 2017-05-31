@@ -16,3 +16,5 @@ d-ubuntu:
   volumes:
   - /home/dwl/docker-images/base/d-ubuntu/volumes/home/username:/home/username
 
+# docker-compose -f /home/dwl/docker-images/base/d-ubuntu/docker-compose.yml up -d
+
