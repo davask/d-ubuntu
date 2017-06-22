@@ -35,8 +35,8 @@ ENV DWL_SSH_ACCESS false
 # Update local
 RUN locale-gen ${DWL_LOCAL}
 # Update packages
-RUN apt-get update
-RUN apt-get install -y apt-utils
+RUN apt-get update && \
+apt-get install -y apt-utils
 RUN apt-get install -y openssl
 RUN apt-get install -y ca-certificates
 RUN apt-get install -y apt-transport-https
@@ -44,11 +44,13 @@ RUN apt-get install -y software-properties-common
 RUN apt-get install -y openssh-server
 RUN apt-get install -y nano
 RUN apt-get install -y wget
+RUN apt-get autoremove -y
 RUN rm -rf /var/lib/apt/lists/*
 
 RUN useradd -ms /bin/bash admin
 RUN echo "admin:admin" | chpasswd
-RUN adduser admin sudo
+RUN addRUN chown root:sudo -R /dwl
+USER admin sudo
 
 #configuration static
 COPY ./build/dwl/envvar.sh /dwl/envvar.sh
@@ -63,6 +65,7 @@ EXPOSE 22
 
 ENTRYPOINT ["/bin/bash"]
 CMD ["/dwl/init.sh"]
+RUN chown root:sudo -R /dwl
 USER admin
 WORKDIR /home/admin
 ' >> ${rootDir}/Dockerfile
