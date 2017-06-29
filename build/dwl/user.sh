@@ -4,7 +4,7 @@
 if [ "`grep ${DWL_USER_NAME} /etc/passwd | wc -l`" = 0 ]; then
     echo "> Declare user ${DWL_USER_NAME}";
     # declare group user
-    sudo useradd -r \
+    useradd -r \
         --comment "dwl ssh user" \
         --home-dir /home/${DWL_USER_NAME} \
         --`if [ -d /home/${DWL_USER_NAME} ]; then echo "no-"; fi`create-home \
