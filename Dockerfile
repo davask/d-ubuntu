@@ -61,12 +61,10 @@ COPY ./build/dwl/envvar.sh \
 ./build/dwl/init.sh \
 /dwl/
 
-RUN chmod +x /dwl/init.sh
-
 EXPOSE 22
 
-# ENTRYPOINT ["/bin/sh", "-c"]
+ENTRYPOINT ["/bin/sh", "-c"]
 CMD ["/dwl/init.sh && /bin/bash"]
 WORKDIR /home/admin
-RUN chown root:sudo -R /dwl
+RUN chmod +x /dwl/init.sh && chown root:sudo -R /dwl
 USER admin
