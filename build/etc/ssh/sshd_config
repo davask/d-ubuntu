@@ -122,7 +122,7 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 #       PermitTTY no
 #       ForceCommand cvs server
 
-AllowUsers dwl davask
+# AllowUsers username
 # AllowGroups adm sudo
 # DenyUsers apache
 # DenyGroups prohibited

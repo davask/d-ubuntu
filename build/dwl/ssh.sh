@@ -1,7 +1,9 @@
 #! /bin/bash
 
 if [ "${DWL_SSH_ACCESS}" = "true" ]; then
-    DWL_KEEP_RUNNING=true;
-    echo "> Start Ssh";
+    sudo sed -i "s|^# AllowUsers username|AllowUsers ${DWLC_USER_NAME}|g" /etc/ssh/sshd_config
+    echo "> Enable ssh";
     sudo service ssh start;
+else
+    echo "> Disable ssh";
 fi
