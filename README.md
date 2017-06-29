@@ -3,25 +3,20 @@
 ## Exposed port
 
 - 22
-
 ## Default ENV values
 
-### Define Default LANG LOCAL
+- DWL_LOCAL_LANG: 'en_US:en'
+- DWL_LOCAL: 'en_US.UTF-8'
+- DWL_USER_NAME: 'username'
+- DWL_SSH_ACCESS: 'false'
+- DWL_USER_ID: '1000'
+- DWL_USER_PASSWD: 'secret'
+## Available volumes
 
-> DWL_LOCAL en_US.UTF-8
-
-### Define username:passwd for ssh access
-
-> DWL_USER_ID 1000
-
-> DWL_USER_NAME username
-
-> DWL_USER_PASSWD secret
-
-### Define if ssh and sftp access are accepted
-
-> DWL_SSH_ACCESS false
-
+- /home/username
 ## LABEL
 
-> dwl.server.os="ubuntu 16.04"
+- dwl.server.os="ubuntu 16.04"
+
+## EXTRA
+

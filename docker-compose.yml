@@ -1,17 +1,18 @@
-d-ubuntu:
+app:
   ports:
-  - 65500:22/tcp
+    - 42002:22/tcp
   environment:
-    DWL_SSH_ACCESS: 'true'
-    DWL_USER_NAME: username
-    DWL_USER_PASSWD: secret
+    DWL_LOCAL_LANG: 'en_US:en'
+    DWL_LOCAL: 'en_US.UTF-8'
+    DWL_USER_NAME: 'username'
+    DWL_SSH_ACCESS: 'false'
     DWL_USER_ID: '1000'
-  labels:
-    io.rancher.container.start_once: 'true'
-    io.rancher.scheduler.affinity:host_label: dwl=dwlComPrivate
+    DWL_USER_PASSWD: 'secret'
   tty: true
-  hostname: ubuntu.davaskweblimited.com
+  hostname: localhost
   image: davask/d-ubuntu:16.04
+  net: bridge
   volumes:
-  - /path/to/home/username:/home/username
-  stdin_open: true
+    - ./volumes/home/username:/home/username
+
+# export COMPOSE_HTTP_TIMEOUT=600; docker-compose -f /home/dwl/docker-images/base/d-ubuntu/docker-compose.yml up -d
