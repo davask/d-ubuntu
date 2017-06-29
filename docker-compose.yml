@@ -1,20 +1,18 @@
-d-ubuntu:
+app:
   ports:
-  - 65502:22/tcp
+    - 42002:22/tcp
   environment:
-    DWL_LOCAL_LANG: en_US:en
-    DWL_LOCAL: en_US.UTF-8
-    DWL_USER_NAME: username
+    DWL_LOCAL_LANG: 'en_US:en'
+    DWL_LOCAL: 'en_US.UTF-8'
+    DWL_USER_NAME: 'username'
     DWL_SSH_ACCESS: 'false'
     DWL_USER_ID: '1000'
-    DWL_USER_PASSWD: secret
-    DWL_KEEP_RUNNING: 'true'
+    DWL_USER_PASSWD: 'secret'
   tty: true
   hostname: localhost
   image: davask/d-ubuntu:14.04
   net: bridge
   volumes:
-  - /home/dwl/docker-images/base/d-ubuntu/volumes/home/username:/home/username
+    - ./volumes/home/username:/home/username
 
-# docker-compose -f /home/dwl/docker-images/base/d-ubuntu/docker-compose.yml up -d
-
+# export COMPOSE_HTTP_TIMEOUT=600; docker-compose -f /home/dwl/docker-images/base/d-ubuntu/docker-compose.yml up -d

@@ -1,8 +1,8 @@
 [
   {
     "title": "Ubuntu 14.04",
-    "description": "Ubuntu 14.04.5 LTS (Trusty Tahr) image",
-    "logo": "http://www.omgubuntu.co.uk/trusty/assets/tahr.png",
+    "description": "Ubuntu 14.04 LTS (Trusty Tahr) image",
+    "logo": "https://linuxpeer.org/assets/img/distro_logo/ubuntu.png",
     "image": "davask/d-ubuntu:14.04",
     "ports": [
         "22/tcp"
@@ -26,9 +26,6 @@
         },{
             "name": "DWL_USER_PASSWD",
             "label": "User password for ssh access [secret]"
-        },{
-            "name": "DWL_KEEP_RUNNING",
-            "label": "Keep container running [true]"
         }
     ],
     "volumes": [
