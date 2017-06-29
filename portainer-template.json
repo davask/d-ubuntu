@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Ubuntu 14.04",
+    "description": "Ubuntu 14.04 LTS (Trusty Tahr) image",
+    "logo": "https://linuxpeer.org/assets/img/distro_logo/ubuntu.png",
+    "image": "davask/d-ubuntu:12.04",
+    "ports": [
+        "22/tcp"
+    ],
+    "env": [
+        {
+            "name": "DWL_LOCAL_LANG",
+            "label": "Local lang [en_US:en]"
+        },{
+            "name": "DWL_LOCAL",
+            "label": "Local [en_US.UTF-8]"
+        },{
+            "name": "DWL_USER_NAME",
+            "label": "Username [username]"
+        },{
+            "name": "DWL_SSH_ACCESS",
+            "label": "Enable ssh access [false]"
+        },{
+            "name": "DWL_USER_ID",
+            "label": "User id [1000]"
+        },{
+            "name": "DWL_USER_PASSWD",
+            "label": "User password for ssh access [secret]"
+        }
+    ],
+    "volumes": [
+        "/home/username"
+    ]
+  }
+]
