@@ -8,7 +8,6 @@ ENV DEBIAN_FRONTEND noninteractive
 # Update packages
 RUN apt-get update && \
 apt-get install -y apt-utils locales
-RUN sed -i 's|# en_US.UTF-8 UTF-8|en_US.UTF-8 UTF-8|g' /etc/locale.gen && \
 locale-gen "en_US.UTF-8"
 # declare locales
 ENV DWL_LOCAL_LANG en_US:en
