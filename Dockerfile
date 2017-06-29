@@ -25,7 +25,6 @@ ENV DWL_SSH_ACCESS false
 
 RUN apt-get update && \
 apt-get install -y \
-locales \
 openssl \
 ca-certificates \
 apt-transport-https \
