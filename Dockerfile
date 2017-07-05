@@ -29,6 +29,7 @@ openssl \
 ca-certificates \
 apt-transport-https \
 software-properties-common \
+python-software-properties \
 openssh-server \
 nano \
 wget \
