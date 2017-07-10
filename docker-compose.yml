@@ -15,10 +15,16 @@ services:
     tty: true
     hostname: localhost
     image: davask/d-ubuntu:16.04
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
     networks:
       - dwlhost
     volumes:
-      - ./volumes/home/username:/home/username
+      - ./volumes/home/host:/dwl/home/host
 
 networks:
     dwlhost:
