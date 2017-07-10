@@ -13,7 +13,7 @@
 - DWL_USER_PASSWD: 'secret'
 ## Available volumes
 
-- /home/username
+- /home/host
 ## LABEL
 
 - dwl.server.os="ubuntu 14.04"
