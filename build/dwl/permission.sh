@@ -1,5 +1,8 @@
 #! /bin/bash
 
+if [ ! -d /dwl/home/host ]; then
+    sudo mkdir -p /dwl/home/host;
+fi
 if [ -d /dwl/home/host/files ]; then
     sudo rm -rdf /home/${DWL_USER_NAME}/files;
     sudo ln -sf /dwl/home/host/files /home/${DWL_USER_NAME}/files;
