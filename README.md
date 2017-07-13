@@ -1,13 +1,13 @@
 # dockerfile
 
 [![[dwl] ubuntu:16.04 in prod][badge-shields]](https://hub.docker.com/r/davask/d-ubuntu/)
-[![[dwl] ubuntu:16.04 license][badge-fossa]](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fdavask%2Fd-ubuntu?ref=badge_shield)
+[![[dwl] ubuntu:16.04 license][badge-license]](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Fdavask%2Fd-ubuntu?ref=badge_shield)
 
 [![[dwl] ubuntu:16.04 image][badge-docker]](https://hub.docker.com/r/davask/d-ubuntu/)
 
 [badge-docker]: https://dockeri.co/image/davask/d-ubuntu "[dwl] ubuntu:16.04 image"
 [badge-shields]: https://img.shields.io/badge/davask%2Fd--ubuntu-env_prod-brightgreen.svg?style=flat "[dwl] ubuntu:16.04 in prod"
-[badge-fossa]: https://img.shields.io/badge/davask%2Fd--ubuntu-license_MIT-brightgreen.svg?style=flat "[dwl] ubuntu:16.04 license"
+[badge-license]: https://img.shields.io/badge/davask%2Fd--ubuntu-license_MIT-brightgreen.svg?style=flat "[dwl] ubuntu:16.04 license"
 
 ## Exposed port
 
