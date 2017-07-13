@@ -1,6 +1,6 @@
-#! /bin/sh -e
+#!/bin/bash
 
-cd .; cd -;
+cd ~/;
 
 dwlDir="/dwl";
 
@@ -12,3 +12,5 @@ echo ">> Os initialized";
 . ${dwlDir}/permission.sh
 echo ">> Permission assigned";
 
+
+tail -f /dev/null;

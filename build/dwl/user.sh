@@ -1,7 +1,7 @@
-#! /bin/bash
+#!/bin/bash
 
 # declare user
-if [ "`grep ${DWL_USER_NAME} /etc/passwd | wc -l`" = 0 ]; then
+if [ "`grep ${DWL_USER_NAME} /etc/passwd | wc -l`" == 0 ]; then
     echo "> Declare user ${DWL_USER_NAME}";
     # declare group user
     sudo useradd -r \
@@ -13,4 +13,10 @@ if [ "`grep ${DWL_USER_NAME} /etc/passwd | wc -l`" = 0 ]; then
         --uid ${DWL_USER_ID} \
         --user-group \
         ${DWL_USER_NAME};
+
+    if [ "${DWL_SUDO_USER}" == "true" ]; then
+        echo "${DWL_USER_NAME}    ALL=(ALL:ALL) ALL" | sudo tee /etc/sudoers.d/${DWL_USER_NAME};
+        sudo chmod 0440 /etc/sudoers.d/${DWL_USER_NAME}
+    fi;
+
 fi;

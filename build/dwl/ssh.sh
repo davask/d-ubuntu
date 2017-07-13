@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 if [ "${DWL_SSH_ACCESS}" = "true" ]; then
     sudo sed -i "s|^# AllowUsers username|AllowUsers ${DWLC_USER_NAME}|g" /etc/ssh/sshd_config
