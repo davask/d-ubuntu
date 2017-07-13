@@ -13,6 +13,7 @@ services:
       DWL_USER_ID: '1000'
       DWL_SSH_ACCESS: 'false'
     tty: true
+    stdin_open: true
     hostname: localhost
     image: davask/d-ubuntu:14.04
     networks:
@@ -25,4 +26,6 @@ networks:
         external: true
 
 # docker network create -d bridge --subnet 192.168.0.0/24 --gateway 192.168.0.1 dwlhost
-# export COMPOSE_HTTP_TIMEOUT=600; docker-compose -f /home/dwl/docker-images/base/d-ubuntu/docker-compose.yml up -d
+# export COMPOSE_HTTP_TIMEOUT=600;
+# docker exec -ti proxy_reverse_1 sh -c 'bash /dwl/init.sh'
+# docker-compose -f /home/dwl/docker-images/base/d-ubuntu/docker-compose.yml up -d
