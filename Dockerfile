@@ -59,6 +59,7 @@ COPY ./build/dwl/envvar.sh \
 ./build/dwl/user.sh \
 ./build/dwl/ssh.sh \
 ./build/dwl/permission.sh \
+./build/dwl/custom.sh \
 ./build/dwl/init.sh \
 /dwl/
 
